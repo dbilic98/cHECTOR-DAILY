@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CHectorDailyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CHectorDailyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CHectorDailyApplication.class, args);
+    }
 
 }
