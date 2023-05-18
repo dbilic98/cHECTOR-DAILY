@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "goals_kategorije")
 public class GoalsKategorije {
     @javax.persistence.Id
     @SequenceGenerator(
@@ -19,9 +19,11 @@ public class GoalsKategorije {
             strategy = GenerationType.SEQUENCE,
             generator = "kategorije_sequence"
     )
+    @Column(name = "id")
     private Integer Id;
 
-   @Enumerated(EnumType.ORDINAL)
+   @Enumerated(EnumType.STRING)
+    @Column(name = "name")
     private GoalType name;
     @JsonIgnore
     @OneToMany(mappedBy = "goalsKategorije")

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "goals")
 public class Goals {
     @Id
     @SequenceGenerator(
@@ -26,11 +26,13 @@ public class Goals {
     private String goalTitle;
     @Column(name = "goal_date")
     private LocalDate goalDate;
+    @Column(name="goal_body")
     private String goalBody;
+    @Column(name="is_completed")
     private boolean isCompleted;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "goals_kategorije_id", nullable = false)
     private GoalsKategorije goalsKategorije;
 
     public Goals() {
