@@ -1,4 +1,4 @@
-package com.cHectorBusinessResultsApp.cHECTORDAILY.GoalsKategorije;
+package com.cHectorBusinessResultsApp.cHECTORDAILY.domain.enumeration;
 
 public enum GoalType {
     MEETING,
