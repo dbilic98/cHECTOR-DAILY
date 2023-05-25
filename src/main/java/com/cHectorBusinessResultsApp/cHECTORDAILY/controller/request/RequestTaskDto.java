@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class RequestTaskDto {
     @NotBlank(message = "Title is mandatory")
-    @Size(min = 4, max = 12, message = "Name should be at least 4 characters, and should not exceed 12 characters.")
+    @Size(min = 4, max = 60, message = "Name should be at least 4 characters, and should not exceed 60 characters.")
     private String title;
 
     private TaskType taskType;
