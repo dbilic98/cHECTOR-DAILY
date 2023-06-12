@@ -1,6 +1,6 @@
 package com.cHectorBusinessResultsApp.cHECTORDAILY.controller;
 
-import com.cHectorBusinessResultsApp.cHECTORDAILY.model.LoginRequest;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.model.JwtAuthenticationRequest;
 import com.cHectorBusinessResultsApp.cHECTORDAILY.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +20,9 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        String username = loginRequest.getUsername();
-        String password = loginRequest.getPassword();
-        return null;
+    public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
+        String username = authenticationRequest.getUsername();
+        String password = authenticationRequest.getPassword();
+        return ResponseEntity.ok("Uspješno prijavljen");
     }
 }
