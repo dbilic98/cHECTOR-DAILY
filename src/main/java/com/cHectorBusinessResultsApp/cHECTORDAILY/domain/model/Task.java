@@ -2,14 +2,15 @@ package com.cHectorBusinessResultsApp.cHECTORDAILY.domain.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(schema = "erp_administration", name = "erp_taskovi")
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "title")
     private String title;
@@ -38,11 +39,11 @@ public class Task {
         this.taskCategory = taskCategory;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

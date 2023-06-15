@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TaskService {
@@ -29,7 +30,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task findTaskById(Integer id) {
+    public Task findTaskById(UUID id) {
         Optional<Task> optionalTask = taskRepository.findById(id);
         if (!optionalTask.isPresent()) {
             throw new TaskNotFoundException("Task ID is not found");
@@ -50,7 +51,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task updateTask(Integer id, RequestTaskDto updatedTaskDto) {
+    public Task updateTask(UUID id, RequestTaskDto updatedTaskDto) {
         Task task = findTaskById(id);
         Optional<TaskCategory> optionalTaskCategory = taskCategoryRepository.findByName(updatedTaskDto.getTaskType());
         if (!optionalTaskCategory.isPresent()) {
@@ -64,7 +65,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public void deleteTask(Integer id) {
+    public void deleteTask(UUID id) {
         try {
             taskRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {

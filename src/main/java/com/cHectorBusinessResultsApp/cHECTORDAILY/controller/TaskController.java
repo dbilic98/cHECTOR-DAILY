@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/tasks")
@@ -36,7 +37,7 @@ public class TaskController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseTaskDto updateTask(@Valid @PathVariable("id") Integer id, @RequestBody RequestTaskDto requestTaskDto) {
+    public ResponseTaskDto updateTask(@Valid @PathVariable("id") UUID id, @RequestBody RequestTaskDto requestTaskDto) {
         Task updatedTask = taskService.updateTask(id, requestTaskDto);
         return new ResponseTaskDto(
                 updatedTask.getTitle(),
@@ -47,7 +48,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseTaskDto findTaskById(@PathVariable Integer id) {
+    public ResponseTaskDto findTaskById(@PathVariable UUID id) {
         Task task = taskService.findTaskById(id);
         return new ResponseTaskDto(
                 task.getTitle(),
@@ -75,9 +76,10 @@ public class TaskController {
         }
         return responseTaskDtoArrayList;
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTask(@PathVariable("id") Integer id) {
+    public void deleteTask(@PathVariable("id") UUID id) {
         taskService.deleteTask(id);
     }
 }
