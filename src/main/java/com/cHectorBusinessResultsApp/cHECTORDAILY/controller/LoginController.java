@@ -4,20 +4,15 @@ import com.cHectorBusinessResultsApp.cHECTORDAILY.model.JwtAuthenticationRequest
 import com.cHectorBusinessResultsApp.cHECTORDAILY.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class LoginController {
 
-    private final UserRepository userRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
-
     @Autowired
-    public LoginController(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder){
-        this.userRepository = userRepository;
-        this.passwordEncoder=passwordEncoder;
-    }
+    private  UserRepository userRepository;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
