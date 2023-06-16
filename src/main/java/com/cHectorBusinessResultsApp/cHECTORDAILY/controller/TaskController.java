@@ -28,6 +28,7 @@ public class TaskController {
     public ResponseTaskDto createTask(@Valid @RequestBody RequestTaskDto requestTaskDto) {
         Task createdTask = taskService.createTask(requestTaskDto);
         return new ResponseTaskDto(
+                createdTask.getId(),
                 createdTask.getTitle(),
                 createdTask.getTaskCategory().getName(),
                 createdTask.getDate(),
@@ -40,6 +41,7 @@ public class TaskController {
     public ResponseTaskDto updateTask(@Valid @PathVariable("id") UUID id, @RequestBody RequestTaskDto requestTaskDto) {
         Task updatedTask = taskService.updateTask(id, requestTaskDto);
         return new ResponseTaskDto(
+                updatedTask.getId(),
                 updatedTask.getTitle(),
                 updatedTask.getTaskCategory().getName(),
                 updatedTask.getDate(),
@@ -51,6 +53,7 @@ public class TaskController {
     public ResponseTaskDto findTaskById(@PathVariable UUID id) {
         Task task = taskService.findTaskById(id);
         return new ResponseTaskDto(
+                task.getId(),
                 task.getTitle(),
                 task.getTaskCategory().getName(),
                 task.getDate(),
@@ -66,6 +69,7 @@ public class TaskController {
 
         for (Task task : tasks) {
             ResponseTaskDto responseTaskDto = new ResponseTaskDto(
+                    task.getId(),
                     task.getTitle(),
                     task.getTaskCategory().getName(),
                     task.getDate(),
