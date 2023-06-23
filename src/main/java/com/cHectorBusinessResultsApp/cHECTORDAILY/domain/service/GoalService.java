@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class GoalService {
@@ -29,7 +30,7 @@ public class GoalService {
         return goalRepository.findAll();
     }
 
-    public Goal findGoalById(Integer id) {
+    public Goal findGoalById(UUID id) {
         Optional<Goal> optionalGoal = goalRepository.findById(id);
         if (!optionalGoal.isPresent()) {
             throw new GoalNotFoundException("Goal ID is not found");
@@ -50,7 +51,7 @@ public class GoalService {
         return goalRepository.save(goal);
     }
 
-    public Goal updateGoal(Integer id, RequestGoalDto updatedGoalDto) {
+    public Goal updateGoal(UUID id, RequestGoalDto updatedGoalDto) {
         Goal goal = findGoalById(id);
         Optional<GoalCategory> optionalGoalCategory = goalCategoryRepository.findByName(updatedGoalDto.getGoalType());
         if (!optionalGoalCategory.isPresent()) {
@@ -64,7 +65,7 @@ public class GoalService {
         return goalRepository.save(goal);
     }
 
-    public void deleteGoal(Integer id) {
+    public void deleteGoal(UUID id) {
         try {
             goalRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {

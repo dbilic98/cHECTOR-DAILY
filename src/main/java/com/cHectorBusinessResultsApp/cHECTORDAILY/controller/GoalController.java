@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/goals")
@@ -27,6 +28,7 @@ public class GoalController {
     public ResponseGoalDto createGoal(@Valid @RequestBody RequestGoalDto requestGoalDto) {
         Goal createdGoal = goalService.createGoal(requestGoalDto);
         return new ResponseGoalDto(
+                createdGoal.getId(),
                 createdGoal.getTitle(),
                 createdGoal.getGoalCategory().getName(),
                 createdGoal.getDate(),
@@ -36,9 +38,10 @@ public class GoalController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseGoalDto updateGoal(@Valid @PathVariable("id") Integer id, @RequestBody RequestGoalDto requestGoalDto) {
+    public ResponseGoalDto updateGoal(@Valid @PathVariable("id") UUID id, @RequestBody RequestGoalDto requestGoalDto) {
         Goal updateGoal = goalService.updateGoal(id, requestGoalDto);
         return new ResponseGoalDto(
+                updateGoal.getId(),
                 updateGoal.getTitle(),
                 updateGoal.getGoalCategory().getName(),
                 updateGoal.getDate(),
@@ -47,9 +50,10 @@ public class GoalController {
     }
 
     @GetMapping("/{id}")
-    public ResponseGoalDto findGoalById(@PathVariable Integer id) {
+    public ResponseGoalDto findGoalById(@PathVariable UUID id) {
         Goal goal = goalService.findGoalById(id);
         return new ResponseGoalDto(
+                goal.getId(),
                 goal.getTitle(),
                 goal.getGoalCategory().getName(),
                 goal.getDate(),
@@ -65,6 +69,7 @@ public class GoalController {
 
         for (Goal goal : goals) {
             ResponseGoalDto responseGoalDto = new ResponseGoalDto(
+                    goal.getId(),
                     goal.getTitle(),
                     goal.getGoalCategory().getName(),
                     goal.getDate(),
@@ -77,7 +82,7 @@ public class GoalController {
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteGoal(@PathVariable("id") Integer id) {
+    public void deleteGoal(@PathVariable("id") UUID id) {
         goalService.deleteGoal(id);
     }
 }

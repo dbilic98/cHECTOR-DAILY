@@ -3,16 +3,18 @@ package com.cHectorBusinessResultsApp.cHECTORDAILY.controller.response;
 import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.enumeration.GoalType;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class ResponseGoalDto {
-
+    private UUID id;
     private String title;
     private GoalType goalType;
     private LocalDate date;
     private String notes;
     private boolean isCompleted;
 
-    public ResponseGoalDto(String title, GoalType goalType, LocalDate date, String notes, boolean isCompleted) {
+    public ResponseGoalDto(UUID id,String title, GoalType goalType, LocalDate date, String notes, boolean isCompleted) {
+        this.id = id;
         this.title = title;
         this.goalType = goalType;
         this.date = date;
@@ -20,6 +22,11 @@ public class ResponseGoalDto {
         this.isCompleted = isCompleted;
     }
 
+    public UUID getId() {return id;}
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
     public String getTitle() {
         return title;
     }
