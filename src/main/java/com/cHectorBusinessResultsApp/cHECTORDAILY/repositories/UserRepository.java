@@ -1,12 +1,15 @@
 package com.cHectorBusinessResultsApp.cHECTORDAILY.repositories;
 
-import com.cHectorBusinessResultsApp.cHECTORDAILY.model.Korisnik;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends JpaRepository<Korisnik, Long> {
+import java.util.UUID;
 
-    Korisnik findByUsername(String username);
+@Repository
+public interface UserRepository extends JpaRepository<User, UUID> {
+
+    User findByUsername(String username);
+
 }
 
