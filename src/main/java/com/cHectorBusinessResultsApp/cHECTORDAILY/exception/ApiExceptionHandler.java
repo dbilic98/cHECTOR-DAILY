@@ -18,7 +18,11 @@ import java.util.Map;
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
+<<<<<<< HEAD
     @ExceptionHandler({TaskNotFoundException.class, TaskCategoryNotFoundException.class})
+=======
+    @ExceptionHandler({UserNotFoundException.class})
+>>>>>>> origin/login
     public ResponseEntity<Object> handleNotFoundException(Exception e, WebRequest request) {
         ErrorResponse body = new ErrorResponse(e.getMessage());
         return handleExceptionInternal(e, body,
