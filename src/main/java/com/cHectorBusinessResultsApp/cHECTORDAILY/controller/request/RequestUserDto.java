@@ -1,4 +1,4 @@
-package com.cHectorBusinessResultsApp.cHECTORDAILY.request;
+package com.cHectorBusinessResultsApp.cHECTORDAILY.controller.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

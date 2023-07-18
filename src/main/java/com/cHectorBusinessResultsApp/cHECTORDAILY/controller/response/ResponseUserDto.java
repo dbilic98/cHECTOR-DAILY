@@ -1,6 +1,5 @@
-package com.cHectorBusinessResultsApp.cHECTORDAILY.response;
+package com.cHectorBusinessResultsApp.cHECTORDAILY.controller.response;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 public class ResponseUserDto {

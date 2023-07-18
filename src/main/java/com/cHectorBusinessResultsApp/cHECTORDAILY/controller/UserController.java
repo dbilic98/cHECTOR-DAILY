@@ -1,14 +1,13 @@
 package com.cHectorBusinessResultsApp.cHECTORDAILY.controller;
 
-import com.cHectorBusinessResultsApp.cHECTORDAILY.model.JwtAuthenticationRequest;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.model.User;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.repositories.UserRepository;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.response.ResponseUserDto;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.services.CustomUserDetailsService;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.request.RequestUserDto;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.model.JwtAuthenticationRequest;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.model.User;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.repository.UserRepository;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.controller.response.ResponseUserDto;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.service.CustomUserDetailsService;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.controller.request.RequestUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

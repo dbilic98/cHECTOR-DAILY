@@ -1,4 +1,4 @@
-package com.cHectorBusinessResultsApp.cHECTORDAILY.model;
+package com.cHectorBusinessResultsApp.cHECTORDAILY.domain.model;
 
 
 import org.springframework.security.core.GrantedAuthority;

@@ -1,9 +1,9 @@
-package com.cHectorBusinessResultsApp.cHECTORDAILY.services;
+package com.cHectorBusinessResultsApp.cHECTORDAILY.domain.service;
 
 import com.cHectorBusinessResultsApp.cHECTORDAILY.exception.UserNotFoundException;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.model.User;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.repositories.UserRepository;
-import com.cHectorBusinessResultsApp.cHECTORDAILY.request.RequestUserDto;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.model.User;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.domain.repository.UserRepository;
+import com.cHectorBusinessResultsApp.cHECTORDAILY.controller.request.RequestUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
